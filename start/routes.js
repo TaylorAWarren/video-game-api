@@ -16,11 +16,24 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 const Database = use('Database')
+const Games = use('App/Models/Game')
 
 Route.get('/', async () => {
-  return await Database.table('games').select('*')
+  return { 
+    greeting: 'Welcome to our video game database!',
+    gamesListUrl: '/games',
+    gameById: '/game/:id'
+  }
 })
 
-// Route.get('/', () => {
-//   return { greeting: 'Hello world in JSON' }
-// })
+Route.resource('games', 'GameController')
+
+// Route.get('/games', 'GameController.index')
+
+// Route.get('/game/:id', 'GameController.show')
+
+// Route.post('/games', 'GameController.store')
+
+// Route.put('/game/:id', 'GameController.update')
+
+// Route.delete('/game/:id', 'GameController.destroy')
