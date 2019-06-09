@@ -15,23 +15,28 @@ const Factory = use('Factory')
 const games = [
   {
     name: "Halo 2",
-    rating: 10
+    rating: 10,
+    developer_id: 1
   },
   {
     name: 'Minecraft',
-    rating: 9
+    rating: 9,
+    developer_id: 3
   },
   {
     name: 'Shrek 2',
-    rating: 2
+    rating: 2,
+    developer_id: 3
   },
   {
     name: "Black Ops 2",
-    rating: 7
+    rating: 7,
+    developer_id: 2
   },
   {
     name: "League of Legends",
-    rating: 6
+    rating: 6,
+    developer_id: 1
   }
 ]
 

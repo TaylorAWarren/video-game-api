@@ -17,13 +17,19 @@
 const Route = use('Route')
 const Database = use('Database')
 const Games = use('App/Models/Game')
+const Developer = use('App/Models/Developer')
 
 Route.get('/', async () => {
-  return { 
+  return {
     greeting: 'Welcome to our video game database!',
     gamesListUrl: '/games',
     gameById: '/game/:id'
   }
+})
+
+Route.get('/developers', async ({ response }) => {
+  const developers = await Developer.all();
+  response.send(developers);
 })
 
 Route.resource('games', 'GameController')
