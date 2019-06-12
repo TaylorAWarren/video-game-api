@@ -25,14 +25,20 @@ Route.get('/', async () => {
     gamesListUrl: '/games',
     gameById: '/game/:id'
   }
-})
+}).middleware(['coolAuth'])
 
 Route.get('/developers', async ({ response }) => {
   const developers = await Developer.all();
   response.send(developers);
 })
 
-Route.resource('games', 'GameController')
+Route.post('/login', 'UserController.login')
+
+Route.post('/user', 'UserController.create')
+
+Route.resource('games', 'GameController').middleware(['coolAuth'])
+
+Route.resource('home', 'GameController').middleware(['coolAuth'])
 
 // Route.get('/games', 'GameController.index')
 
